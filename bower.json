@@ -1,0 +1,17 @@
+{
+  "name": "ng-jeopardy",
+  "version": "0.0.0",
+  "homepage": "https://github.com/albreyb/ng-jeopardy",
+  "authors": [
+    "Albrey Brown <albrey.brown@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "www/lib",
+    "test",
+    "tests"
+  ]
+}
