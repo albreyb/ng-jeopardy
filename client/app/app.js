@@ -4,6 +4,11 @@ app.directive('jeopardyCard', function(){
   return {
     restrict: 'EAC',
     link: function(scope, element, attributes){
+      element.on('click', function() {
+        console.log(scope.$parent.value);
+        console.log(scope.data[scope.$index].question);
+        console.log(scope.title[scope.$index]);
+      });
     },
     templateUrl:'jeopardyCard.html',
     replace: true,
@@ -24,7 +29,7 @@ app.controller('JeopardyCardController', function($scope){
   $scope.title = ['Staff', 'JavaScript', 'San Francisco', 'FootBall', 'Hip Hop'];
 
   $scope.showAnswer = function(index, value) {
-    console.log($scope.title[index], value);
+    // console.log($scope.title[index], value);
   };
 
 
