@@ -1,43 +1,36 @@
 <html>
-<head>
-  <title>ng-jeopardy</title>
-  <!-- link tags for css -->
-  <link rel="stylesheet" type="text/css" href="client/lib/bootstrap-css-only/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="client/styles/style.css">
-</head>
-<body ng-app="ng-jeopardy" ng-controller="JeopardyCardController">
-  <div class="row">
-    <jeopardy-card ng-repeat="card in title" class="col-md-2"></jeopardy-card>
-  </div>
-  <div class="row" ng-repeat="question in data|limitTo:5">
-    <jeopardy-card ng-repeat="stuff in data" class="col-md-2">{{stuff.question}}</jeopardy-card>
-  </div>
-<!-- App Dependencies -->
-<script src="client/lib/angular/angular.js"></script>
-
-
-
-<!-- Dev Dependencies -->
-<script src="client/app/app.js"></script>
-<script type="text/ng-template" id="jeopardyCard.html">
-  <div class="card">
-    <div class="front">
-      <p class="worth">{{card || stuff.question}} </p>
+  <head>
+    <title>ng-jeopardy</title>
+    <!-- link tags for css -->
+    <link rel="stylesheet" type="text/css" href="client/lib/bootstrap-css-only/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="client/styles/style.css">
+  </head>
+  <body ng-app="ng-jeopardy" ng-controller="JeopardyCardController">
+    <div class="row">
+      <jeopardy-card ng-repeat="card in title" class="col-md-2"></jeopardy-card>
     </div>
-    <div class="back">
-      <a>Answer</a>
+
+    <div class="row" ng-repeat="question in data|limitTo:5">
+
+      <jeopardy-card ng-repeat="stuff in data" class="col-md-2">{{stuff.question}}</jeopardy-card>
+
     </div>
-  </div>
-</script>
-</body>
+  <!-- App Dependencies -->
+  <script src="client/lib/angular/angular.js"></script>
+
+
+
+  <!-- Dev Dependencies -->
+  <script src="client/app/app.js"></script>
+  <script type="text/ng-template" id="jeopardyCard.html">
+    <div class="card">
+      <div class="front">
+        <p class="worth">{{card || stuff.worth}} </p>
+      </div>
+      <div class="back">
+        <a>Answer</a>
+      </div>
+    </div>
+  </script>
+  </body>
 </html>
-
-
-
-{
-  200: [{
-
-}], 
-  400: {[
-  ]}
-}
