@@ -10,7 +10,7 @@
       <jeopardy-card ng-repeat="card in title" class="col-md-2"></jeopardy-card>
     </div>
 
-    <div class="row" ng-repeat="question in data|limitTo:5">
+    <div class="row" ng-repeat="value in value|limitTo:5">
 
       <jeopardy-card ng-repeat="stuff in data" class="col-md-2">{{stuff.question}}</jeopardy-card>
 
@@ -23,13 +23,13 @@
   <!-- Dev Dependencies -->
   <script src="client/app/app.js"></script>
   <script type="text/ng-template" id="jeopardyCard.html">
-    <div class="card">
+    <div class="card" ng-click=showAnswer($index)>
       <div class="front">
-        <p class="worth">{{card || stuff.worth}} </p>
+        <p class="worth">{{card || value}} </p>
       </div>
-      <div class="back">
+      <!-- <div class="back">
         <a>Answer</a>
-      </div>
+      </div> -->
     </div>
   </script>
   </body>
