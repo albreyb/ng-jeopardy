@@ -6,13 +6,19 @@
     <link rel="stylesheet" type="text/css" href="client/styles/style.css">
   </head>
   <body ng-app="ng-jeopardy" ng-controller="JeopardyCardController">
-    <div class="container">  
+ <!--    <div class="container">  
       <div class="row">
         <jeopardy-card ng-repeat="card in title" class="col-md-2"></jeopardy-card>
       </div>
       
       <div class="row">
         <jeopardy-card ng-repeat="stuff in data">{{stuff.question}}</jeopardy-card>
+      </div>
+    </div> -->
+
+    <div class="container">
+      <div class="column" ng-repeat="name in title">
+        <jeopardy-card></jeopardy-card>
       </div>
     </div>
   <!-- App Dependencies -->
@@ -25,9 +31,9 @@
   <script type="text/ng-template" id="jeopardyCard.html">
     <div class="card" ng-click="showAnswer()">
       <div class="front">
-        <p class="worth">{{card || stuff.worth}} </p>
+        <p class="worth">{{name}} </p>
       </div>
-      <div class="back">
+      <div class="back" ng-hide="true">
         <a>Answer</a>
       </div>
     </div>
