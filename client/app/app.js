@@ -4,6 +4,11 @@ app.directive('jeopardyCard', function(){
   return {
     restrict: 'EAC',
     link: function(scope, element, attributes){
+      element.on('click', function() {
+        console.log(scope.$parent.value);
+        console.log(scope.data[scope.$index].question);
+        console.log(scope.title[scope.$index]);
+      });
     },
     templateUrl:'jeopardyCard.html',
     replace: true,
@@ -12,191 +17,21 @@ app.directive('jeopardyCard', function(){
 
 app.controller('JeopardyCardController', function($scope){
   $scope.data = [
-    {worth: 200, question: "who's the weakest out", answer: "kia fathi"},
-    {worth: 400, question: "who's the weakest out", answer: "kia fathi"},
-    {worth: 600, question: "who's the weakest out", answer: "kia fathi"},
-    {worth: 800, question: "who's the weakest out", answer: "kia fathi"},
-    {worth: 1000, question: "who's the weakest out", answer: "kia fathi"},
-
+    {worth: 200, question: "who's the weakest out", answer: "kia fathi", category: 'Staff'},
+    {worth: 400, question: "who's the weakest out", answer: "soldier boy", category: 'Hip Hop'},
+    {worth: 600, question: "who's the weakest out", answer: "kia fathi", category: 'FootBall'},
+    {worth: 800, question: "question dawg", answer: "kia fathi", category: 'Staff'},
+    {worth: 1000, question: "who's the weakest out", answer: "answer dawg", category: 'JavaScript'},
   ];
+
+  $scope.value = [200, 400, 600, 800, 1000];
 
   $scope.title = ['Staff', 'JavaScript', 'San Francisco', 'FootBall', 'Hip Hop'];
 
-  // $scope.allData = [
-  //   {
-  //     "Staff Trivia": [
-  //         {
-  //           value: 200,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         },
-  //         {
-  //           value: 400,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         },
-  //         {
-  //           value: 600,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         },
-  //         {
-  //           value: 800,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         },
-  //         {
-  //           value: 1000,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         }
-  //       ],
-  //     },
-  //     {
-  //     'JavaScript Battle': [
-  //         {
-  //           value: 200,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         },
-  //         {
-  //           value: 400,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         },
-  //         {
-  //           value: 600,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         },
-  //         {
-  //           value: 800,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         },
-  //         {
-  //           value: 1000,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         }
-  //       ],
-  //     },
-  //     {
-  //     'Where In San Francisco': [
-  //         {
-  //           value: 200,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         },
-  //         {
-  //           value: 400,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         },
-  //         {
-  //           value: 600,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         },
-  //         {
-  //           value: 800,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         },
-  //         {
-  //           value: 1000,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         }
-  //       ],
-  //     },
-  //     {
-  //     "This and Other Gotchas": [
-  //         {
-  //           value: 200,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         },
-  //         {
-  //           value: 400,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         },
-  //         {
-  //           value: 600,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         },
-  //         {
-  //           value: 800,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         },
-  //         {
-  //           value: 1000,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         }
-  //       ],
-  //     },
-  //     {
-  //     category: "Name That Data Structure!",
-  //     questions: [
-  //         {
-  //           value: 200,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         },
-  //         {
-  //           value: 400,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         },
-  //         {
-  //           value: 600,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         },
-  //         {
-  //           value: 800,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         },
-  //         {
-  //           value: 1000,
-  //           question: "whats your name",
-  //           answer: "albrey",
-  //           status: true,
-  //         }
-  //       ],
-  //     },
-  // ];
 
-  $scope.showAnswer = function(){
-    console.log("hey")
-  }
+  $scope.showAnswer = function(index, value) {
+    // console.log($scope.title[index], value);
+  };
+
+
 });
